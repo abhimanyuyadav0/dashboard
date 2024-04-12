@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMediaFile, closeUploadModal } from 'store/reducers/mediaFiles';
 
-// eslint-disable-next-line react/prop-types
 const UploadMediaModal = ({ accept }) => {
   const [files, setFiles] = useState([]);
   const dispatch = useDispatch();
@@ -72,9 +71,7 @@ const UploadMediaModal = ({ accept }) => {
           <p>{files.length > 0 && 'Change'}</p>
         </IconButton>
         <Typography variant="body2" color="text.secondary">
-          {/* eslint-disable-next-line react/prop-types */}
           {accept?.startsWith('image/') && <>PNG, JPG, and GIF files are allowed</>}
-          {/* eslint-disable-next-line react/prop-types */}
           {accept?.startsWith('video/') && <>mp4 files are allowed</>}
           {!accept && <>PNG, JPG, GIF and mp4 files are allowed</>}
         </Typography>

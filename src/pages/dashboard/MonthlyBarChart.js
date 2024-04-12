@@ -65,7 +65,6 @@ const MonthlyBarChart = () => {
         theme: 'light'
       }
     }));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [primary, info, secondary]);
 
   return (

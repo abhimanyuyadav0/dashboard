@@ -1,8 +1,7 @@
 import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MainLayout from 'layout/MainLayout';
-// eslint-disable-next-line no-unused-vars
-import { element } from 'prop-types';
+// import { element } from 'prop-types';
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 const Profile = Loadable(lazy(() => import('pages/profile')));
 const Media = Loadable(lazy(() => import('pages/media')));

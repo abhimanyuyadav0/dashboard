@@ -3,16 +3,24 @@ import { Box, Grid, Card, ListItemButton, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import Text from 'components/common/text/index';
 import VideoCameraBackOutlinedIcon from '@mui/icons-material/VideoCameraBackOutlined';
+import EditableText from '../components/editableText/index';
+import { useDispatch } from 'react-redux';
+import { addMediaFile } from 'store/reducers/mediaFiles';
+import { v4 as uuidv4 } from 'uuid';
 
 const VideoRecorder = () => {
   const theme = useTheme();
   const [isRecording, setIsRecording] = useState(false);
   const [recordedTime, setRecordedTime] = useState(0);
+  const [media, setMedia] = useState({name:'Project Name'});
   const videoRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const chunksRef = useRef([]);
   const timerRef = useRef(null);
-
+  const dispatch = useDispatch();
+  const handleMediaDataChange = (data) => {
+    setMedia({ ...media, ...data })
+  };
   const startRecording = () => {
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(stream => {
@@ -34,7 +42,19 @@ const VideoRecorder = () => {
     tracks.forEach(track => {
       track.stop();
     });
-    chunksRef.current = []; // Clear chunks array
+    stopTimer()
+    const recordedBlob = new Blob(chunksRef.current, { type: 'video/webm' });
+    const videoUrl = URL.createObjectURL(recordedBlob);
+    const fileId = uuidv4();
+    const data = {
+      id: fileId,
+      src: videoUrl,
+      type: 'video/webm',
+      name: `recording_${fileId}.webm`,
+      author: 'Abhimanyu Yadav'
+    };
+    dispatch(addMediaFile({ mediaFile: data }));
+    chunksRef.current = [];
   };
 
   const handleDataAvailable = (event) => {
@@ -53,6 +73,7 @@ const VideoRecorder = () => {
     a.download = 'recording.webm';
     a.click();
     window.URL.revokeObjectURL(url);
+
   };
 
   const startTimer = () => {
@@ -77,9 +98,12 @@ const VideoRecorder = () => {
       <Box sx={{ my: 3 }}>
         <Grid container spacing={3} sx={{ justifyContent: { xs: 'center', md: 'end' } }}>
           <Grid item xs={6} sm={6} md={3}>
-            {chunksRef.current.length > 0 && !isRecording && (
-              <Button sx={{ height: '40px', my: 1.5, bgcolor: 'primary.200' }} onClick={downloadVideo}>Download Video</Button>
-            )}
+            <Box sx={{ mb: 4, display: 'flex', justifyContent: 'space-between' }}>
+              <EditableText media={media} setMedia={setMedia} name="name" onSave={handleMediaDataChange} />
+              {chunksRef.current.length > 0 && !isRecording && (
+                <Button sx={{ height: '40px', my: 1.5, bgcolor: 'primary.200' }} onClick={downloadVideo}>Download Video</Button>
+              )}
+            </Box>
           </Grid>
           <Grid item xs={6} sm={6} md={3}>
             <Card sx={{ boxShadow: theme.customShadows.z1, borderRadius: 3 }} shadow>
@@ -106,12 +130,12 @@ const VideoRecorder = () => {
       </Box>
       <Box className='d-center' >
         <Box sx={{ borderRadius: 5, width: 'fit-content' }} className='d-center' >
-          <video ref={videoRef} className='mediaFileEditView' style={{ borderRadius: 15 }} autoPlay></video>
+          <video ref={videoRef} className='mediaFileEditView' style={{ borderRadius: 15 }} autoPlay controls></video>
         </Box>
       </Box>
       {isRecording && (
         <Box sx={{ textAlign: 'center', my: 2 }}>
-          <Text variant="body1" color="text.secondary">Recording Time: {formatTime(recordedTime)}</Text>
+          <Text size={10}>Recording Time: {formatTime(recordedTime)}</Text>
         </Box>
       )}
     </Box>

@@ -9,8 +9,8 @@ import CroppedVideo from './videoCrop/index';
 import CroppedImage from './imageCrop/index';
 import IconMenu from './iconMenu/index';
 import SelectedSettingList from './selectedSettingList/index';
-import EditableText from './editableText/index';
 import { updateMediaFile } from 'store/reducers/mediaFiles';
+import EditableText from '../editableText/index';
 
 const ViewMedia = () => {
   const dispatch = useDispatch();

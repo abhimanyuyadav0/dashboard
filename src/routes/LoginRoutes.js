@@ -1,6 +1,8 @@
 import { lazy } from 'react';
 import Loadable from 'components/Loadable';
 import MinimalLayout from 'layout/MinimalLayout';
+import CommingSoon from 'components/common/commingSoon';
+
 const AuthLogin = Loadable(lazy(() => import('pages/authentication/Login')));
 const AuthRegister = Loadable(lazy(() => import('pages/authentication/Register')));
 
@@ -10,11 +12,11 @@ const LoginRoutes = {
   children: [
     {
       path: 'login',
-      element: <AuthLogin />
+      element: <CommingSoon />
     },
     {
       path: 'register',
-      element: <AuthRegister />
+      element: <CommingSoon />
     }
   ]
 };

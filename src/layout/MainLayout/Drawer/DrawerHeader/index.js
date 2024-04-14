@@ -16,7 +16,7 @@ const DrawerHeader = ({ open }) => {
           size="small"
           sx={{ height: 16, '& .MuiChip-label': { fontSize: '0.625rem' } }}
           component="a"
-          href=""
+          href="https://github.com/abhimanyuyadav0/dashboard"
           target="_blank"
           clickable
         />

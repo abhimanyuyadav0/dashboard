@@ -18,7 +18,7 @@ const HeaderContent = () => {
 
       <IconButton
         component={Link}
-        href="#"
+        href="https://github.com/abhimanyuyadav0/dashboard"
         target="_blank"
         disableRipple
         color="secondary"

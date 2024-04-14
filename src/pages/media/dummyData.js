@@ -32,6 +32,9 @@ const settingOption = [
         title: 'background'
       },
       {
+        title: 'color'
+      },
+      {
         title: 'crop'
       },
       {

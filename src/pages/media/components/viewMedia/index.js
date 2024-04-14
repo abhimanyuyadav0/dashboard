@@ -16,13 +16,12 @@ const ViewMedia = () => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const { id } = useParams();
-
-  const [media, setMedia] = useState({});
+  const [media, setMedia] = useState({ style: { backgroundColor: '#000000', color: '' } });
   const [open] = useState(false);
   const [screenType, setScreenType] = useState('setting');
   const [activeSetting, setActiveSetting] = useState({});
   const [croppedImage, setCroppedImage] = useState(null);
-  
+
   dispatch(openDrawer({ drawerOpen: open }));
   const mediaFiles = useSelector((state) => state.mediaFiles.mediaFiles);
 
@@ -39,16 +38,22 @@ const ViewMedia = () => {
     dispatch(updateMediaFile({ mediaFileId: media.id, newData: data }));
   };
   return (
-    <Box sx={{ backgroundColor: "" }}>
+    <Box sx={{}}>
       <Grid container spacing={{ xs: 2, md: 4 }} columns={{ xs: 4, sm: 8, md: 16 }}>
         <Grid item xs={1} sm={1} md={1}>
           <IconMenu setScreenType={setScreenType} screenType={screenType} />
         </Grid>
         <Grid item xs={3} sm={4} md={5} sx={{ px: 4, borderRight: `2px solid ${theme.palette.grey[300]}` }}>
-          <SelectedSettingList screenType={screenType} setActiveSetting={setActiveSetting} />
+          <SelectedSettingList
+            setMedia={setMedia}
+            media={media}
+            screenType={screenType}
+            activeSetting={activeSetting}
+            setActiveSetting={setActiveSetting}
+          />
         </Grid>
         <Grid item xs={2} sm={4} md={10} sx={{ p: 4 }}>
-          <Box>
+          <Box sx={{ ...media.style, p: 2, borderRadius: 4 }}>
             <Box sx={{ mb: 4 }}>
               <EditableText media={media} setMedia={setMedia} name="name" onSave={handleMediaDataChange} />
             </Box>

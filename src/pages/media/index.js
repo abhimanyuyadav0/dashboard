@@ -5,6 +5,7 @@ import { CustomButton } from 'components/common/index';
 import MediaCard from './components/mediaCard/index';
 import UploadMediaModal from './components/upload/index';
 import { openUploadModal } from 'store/reducers/mediaFiles';
+import Text from 'components/common/text/index';
 
 const AllMedia = () => {
   const dispatch = useDispatch();
@@ -14,9 +15,9 @@ const AllMedia = () => {
     <Box>
       <Box>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Typography variant="h1" color="text.primary" gutterBottom>
-            All media
-          </Typography>
+          <Text variant="span" >
+            Let's create some <Text variant="span">Video</Text>
+          </Text>
           <CustomButton label={'upload'} onClick={() => dispatch(openUploadModal())} />
         </Box>
         <Box>

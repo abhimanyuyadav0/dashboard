@@ -5,8 +5,6 @@ import { Grid, Skeleton, Stack } from '@mui/material';
 
 import MainCard from 'components/MainCard';
 
-// ===============================|| COMPONENT - SKELETON ||=============================== //
-
 const ComponentSkeleton = ({ children }) => {
   const [isLoading, setLoading] = useState(true);
   useEffect(() => {

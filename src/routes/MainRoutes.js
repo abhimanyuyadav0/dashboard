@@ -4,6 +4,8 @@ import MainLayout from 'layout/MainLayout';
 // import { element } from 'prop-types';
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 const Profile = Loadable(lazy(() => import('pages/profile')));
+const Templates = Loadable(lazy(() => import('pages/templates')));
+const PodcastAndShows = Loadable(lazy(() => import('pages/podcastAndShow')));
 const Media = Loadable(lazy(() => import('pages/media')));
 const AllImages = Loadable(lazy(() => import('pages/media/images')));
 const AllVideos = Loadable(lazy(() => import('pages/media/videos')));
@@ -20,19 +22,27 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <DashboardDefault />
+      element: <Media />
     },
     {
       path: 'color',
       element: <Color />
     },
+    // {
+    //   path: 'dashboard',
+    //   element: <DashboardDefault />
+    // },
     {
-      path: 'dashboard',
-      element: <DashboardDefault />
+      path: 'home',
+      element: <Media />
     },
     {
-      path: 'media',
-      element: <Media />
+      path: 'templates',
+      element: <Templates />
+    },
+    {
+      path: 'podcastandshow',
+      element: <PodcastAndShows />
     },
     {
       path: 'media/images',

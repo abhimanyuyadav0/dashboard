@@ -5,8 +5,6 @@ import { Breadcrumbs, Divider, Grid, Link, Stack, Typography } from '@mui/materi
 import ComponentSkeleton from './ComponentSkeleton';
 import MainCard from 'components/MainCard';
 
-// ==============================|| COMPONENTS - TYPOGRAPHY ||============================== //
-
 const ComponentTypography = () => (
   <ComponentSkeleton>
     <Grid container spacing={3}>

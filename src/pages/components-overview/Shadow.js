@@ -8,8 +8,6 @@ import { Grid, Stack, Typography } from '@mui/material';
 import MainCard from 'components/MainCard';
 import ComponentSkeleton from './ComponentSkeleton';
 
-// ===============================|| SHADOW BOX ||=============================== //
-
 function ShadowBox({ shadow }) {
   return (
     <MainCard border={false} sx={{ boxShadow: shadow }}>
@@ -24,8 +22,6 @@ function ShadowBox({ shadow }) {
 ShadowBox.propTypes = {
   shadow: PropTypes.string.isRequired
 };
-
-// ===============================|| CUSTOM - SHADOW BOX ||=============================== //
 
 function CustomShadowBox({ shadow, label, color, bgcolor }) {
   return (
@@ -45,8 +41,6 @@ CustomShadowBox.propTypes = {
   label: PropTypes.string.isRequired,
   bgcolor: PropTypes.string
 };
-
-// ============================|| COMPONENT - SHADOW ||============================ //
 
 const ComponentShadow = () => {
   const theme = useTheme();

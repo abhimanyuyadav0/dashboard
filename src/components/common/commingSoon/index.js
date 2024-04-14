@@ -1,13 +1,16 @@
 import React from 'react'
 import './commingSoon.css'
-const CommingSoon = () => {
+import Text from '../text/index'
+import { useTheme } from '@mui/material/styles';
 
+const CommingSoon = () => {
+  const theme = useTheme();
   return (
     <div className='wrapper'>
       <div className='section'>
         <canvas className='beerCanvas'></canvas>
-        <div className="coming_content">
-          <h1>Coming Soon</h1>
+        <div className="coming_content" style={{color:theme.palette.primary.main}}>
+          <Text variant='h1' size={30} color={theme.palette.primary.main} >Coming Soon</Text>
           <div className="separator_container">
             <div className="separator line_separator">
               <span>
@@ -15,7 +18,7 @@ const CommingSoon = () => {
               </span>
             </div>
           </div>
-          <h3>React js</h3>
+          <Text>React js</Text>
         </div>
       </div>
     </div>

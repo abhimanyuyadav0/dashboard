@@ -54,8 +54,6 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-// ==============================|| ORDER TABLE - HEADER CELL ||============================== //
-
 const headCells = [
   {
     id: 'trackingNo',
@@ -90,8 +88,6 @@ const headCells = [
   }
 ];
 
-// ==============================|| ORDER TABLE - HEADER ||============================== //
-
 function OrderTableHead({ order, orderBy }) {
   return (
     <TableHead>
@@ -115,8 +111,6 @@ OrderTableHead.propTypes = {
   order: PropTypes.string,
   orderBy: PropTypes.string
 };
-
-// ==============================|| ORDER TABLE - STATUS ||============================== //
 
 const OrderStatus = ({ status }) => {
   let color;

@@ -28,8 +28,6 @@ const areaChartOptions = {
   }
 };
 
-// ==============================|| INCOME AREA CHART ||============================== //
-
 const IncomeAreaChart = ({ slot }) => {
   const theme = useTheme();
 

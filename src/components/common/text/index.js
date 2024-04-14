@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './text.css';
 
-const Text = ({ children, onClick, size = 16, variant = 'div' }) => {
+const Text = ({ children, onClick, size = 16, variant = 'div', color }) => {
   const [fontSize, setFontSize] = useState(`${size}px`);
-  const Component = variant; // Dynamically select the HTML element based on the 'variant' prop
+  const Component = variant;
 
   useEffect(() => {
     const handleResize = () => {
       let newSize = size;
       if (window.innerWidth <= 767) {
-        newSize = size * 0.85; // Reduce font size by 15%
+        newSize = size * 0.85;
       } else if (window.innerWidth <= 1024) {
-        newSize = size * 0.95; // Reduce font size by 5% 
+        newSize = size * 0.95;
       }
       setFontSize(`${newSize}px`);
     };
@@ -25,7 +25,8 @@ const Text = ({ children, onClick, size = 16, variant = 'div' }) => {
   }, [size]);
   const styleSheet = {
     fontSize: fontSize,
-    margin: '0px'
+    margin: '0px',
+    color: color
   }
   return (
     <Component style={styleSheet} onClick={onClick}>

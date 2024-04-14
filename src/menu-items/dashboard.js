@@ -1,7 +1,10 @@
-import { DashboardOutlined,UserOutlined } from '@ant-design/icons';
+import { DashboardOutlined, UserOutlined, HomeOutlined, VideoCameraOutlined, FileImageOutlined, } from '@ant-design/icons';
 const icons = {
   DashboardOutlined,
-  UserOutlined
+  UserOutlined,
+  HomeOutlined,
+  VideoCameraOutlined,
+  FileImageOutlined
 };
 
 const dashboard = {
@@ -10,27 +13,35 @@ const dashboard = {
   type: 'group',
   children: [
     {
-      id: 'dashboard',
-      title: 'Dashboard',
+      id: 'home',
+      title: 'Home',
       type: 'item',
-      url: '/dashboard',
-      icon: icons.DashboardOutlined,
+      url: '/home',
+      icon: icons.HomeOutlined,
       breadcrumbs: false
     },
+    // {
+    //   id: 'dashboard',
+    //   title: 'Dashboard',
+    //   type: 'item',
+    //   url: '/dashboard',
+    //   icon: icons.DashboardOutlined,
+    //   breadcrumbs: false
+    // },
+    // {
+    //   id: 'profile',
+    //   title: 'Profile',
+    //   type: 'item',
+    //   url: '/profile',
+    //   icon: icons.UserOutlined,
+    //   breadcrumbs: false
+    // },
     {
-      id: 'profile',
-      title: 'Profile',
+      id: 'templates',
+      title: 'Templates',
       type: 'item',
-      url: '/profile',
-      icon: icons.UserOutlined,
-      breadcrumbs: false
-    },
-    {
-      id: 'media',
-      title: 'Media',
-      type: 'item',
-      url: '/media',
-      icon: icons.UserOutlined,
+      url: '/templates',
+      icon: icons.VideoCameraOutlined,
       breadcrumbs: false
     },
     {
@@ -38,15 +49,23 @@ const dashboard = {
       title: 'All Videos',
       type: 'item',
       url: 'media/videos',
-      icon: icons.UserOutlined,
+      icon: icons.VideoCameraOutlined,
       breadcrumbs: true
+    },
+    {
+      id: 'podcastandshow',
+      title: 'Podcasts & Shows',
+      type: 'item',
+      url: '/podcastandshow',
+      icon: icons.VideoCameraOutlined,
+      breadcrumbs: false
     },
     {
       id: 'allimages',
       title: 'All Images',
       type: 'item',
       url: 'media/images',
-      icon: icons.UserOutlined,
+      icon: icons.FileImageOutlined,
       breadcrumbs: false
     }
   ]

@@ -17,6 +17,7 @@
     "apexcharts": "^3.45.2",
     "eslint": "^9.0.0",
     "fast-average-color": "^9.4.0",
+    "firebase": "^10.11.0",
     "formik": "^2.4.5",
     "framer-motion": "^11.0.3",
     "fs": "^0.0.1-security",

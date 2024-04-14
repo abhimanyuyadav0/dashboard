@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './text.css';
 
-const Text = ({ children, onClick, size = 16, variant = 'div', color }) => {
+const Text = ({ children, onClick, style, size = 16, variant = 'div', color }) => {
   const [fontSize, setFontSize] = useState(`${size}px`);
   const Component = variant;
 
@@ -26,7 +26,8 @@ const Text = ({ children, onClick, size = 16, variant = 'div', color }) => {
   const styleSheet = {
     fontSize: fontSize,
     margin: '0px',
-    color: color
+    color: color,
+    ...style
   }
   return (
     <Component style={styleSheet} onClick={onClick}>

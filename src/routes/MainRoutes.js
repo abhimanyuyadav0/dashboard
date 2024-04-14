@@ -9,6 +9,7 @@ const PodcastAndShows = Loadable(lazy(() => import('pages/podcastAndShow')));
 const Media = Loadable(lazy(() => import('pages/media')));
 const AllImages = Loadable(lazy(() => import('pages/media/images')));
 const AllVideos = Loadable(lazy(() => import('pages/media/videos')));
+const VideoRecorder = Loadable(lazy(() => import('pages/media/recordVideo')));
 const ViewMedia = Loadable(lazy(() => import('pages/media/components/viewMedia')));
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
 const Typography = Loadable(lazy(() => import('pages/components-overview/Typography')));
@@ -37,6 +38,10 @@ const MainRoutes = {
       element: <Media />
     },
     {
+      path: 'media',
+      element: <Media />
+    },
+    {
       path: 'templates',
       element: <Templates />
     },
@@ -45,15 +50,19 @@ const MainRoutes = {
       element: <PodcastAndShows />
     },
     {
-      path: 'images',
+      path: 'media/images',
       element: <AllImages />
     },
     {
-      path: 'videos',
+      path: 'media/videos',
       element: <AllVideos />
     },
     {
-      path: ':type/view',
+      path: 'media/recordVideo',
+      element: <VideoRecorder />
+    },
+    {
+      path: 'media/:type/view',
       element: <ViewMedia />,
       children: [
         {

@@ -1,10 +1,12 @@
-import { DashboardOutlined, UserOutlined, HomeOutlined, VideoCameraOutlined, FileImageOutlined, } from '@ant-design/icons';
+import { DashboardOutlined,CodeSandboxOutlined ,WifiOutlined , UserOutlined, HomeOutlined, VideoCameraOutlined, FileImageOutlined, } from '@ant-design/icons';
 const icons = {
   DashboardOutlined,
   UserOutlined,
   HomeOutlined,
   VideoCameraOutlined,
-  FileImageOutlined
+  FileImageOutlined,
+  CodeSandboxOutlined,
+  WifiOutlined
 };
 
 const dashboard = {
@@ -41,14 +43,14 @@ const dashboard = {
       title: 'Templates',
       type: 'item',
       url: '/templates',
-      icon: icons.VideoCameraOutlined,
+      icon: icons.CodeSandboxOutlined,
       breadcrumbs: false
     },
     {
       id: 'allvideos',
       title: 'All Videos',
       type: 'item',
-      url: 'videos',
+      url: 'media/videos',
       icon: icons.VideoCameraOutlined,
       breadcrumbs: true
     },
@@ -57,14 +59,14 @@ const dashboard = {
       title: 'Podcasts & Shows',
       type: 'item',
       url: '/podcastandshow',
-      icon: icons.VideoCameraOutlined,
+      icon: icons.WifiOutlined,
       breadcrumbs: false
     },
     {
       id: 'allimages',
       title: 'All Images',
       type: 'item',
-      url: 'images',
+      url: 'media/images',
       icon: icons.FileImageOutlined,
       breadcrumbs: false
     }

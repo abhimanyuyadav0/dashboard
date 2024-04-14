@@ -45,15 +45,15 @@ const MainRoutes = {
       element: <PodcastAndShows />
     },
     {
-      path: 'media/images',
+      path: 'images',
       element: <AllImages />
     },
     {
-      path: 'media/videos',
+      path: 'videos',
       element: <AllVideos />
     },
     {
-      path: 'media/:type/view',
+      path: ':type/view',
       element: <ViewMedia />,
       children: [
         {

@@ -48,7 +48,7 @@ const dashboard = {
       id: 'allvideos',
       title: 'All Videos',
       type: 'item',
-      url: 'media/videos',
+      url: 'videos',
       icon: icons.VideoCameraOutlined,
       breadcrumbs: true
     },
@@ -64,7 +64,7 @@ const dashboard = {
       id: 'allimages',
       title: 'All Images',
       type: 'item',
-      url: 'media/images',
+      url: 'images',
       icon: icons.FileImageOutlined,
       breadcrumbs: false
     }

@@ -5,29 +5,37 @@ import { Box } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { removeMediaFile } from 'store/reducers/mediaFiles';
 import { useNavigate } from 'react-router-dom';
+import Text from 'components/common/text/index';
 
 const MediaCard = ({ id, name, src, author, type }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleViewClick = () => {
-    let mediaType = type.startsWith('image/') ? 'images' : 'videos';
+    let mediaType = type?.startsWith('image/') ? 'images' : 'videos';
     navigate(`/media/${mediaType}/view/${id}`);
   };
+  const styleSheet = {
+    maxWidth: '100%',
+    borderRadius: '10px',
+    objectFit: 'cover'
+  }
   return (
-    <MainCard sx={{ m: 1, backgroundColor: '#ffff0c' }}>
-      <Box sx={{ textAlign: 'center' }}>
-        {type.startsWith('image/') && <img src={src} alt={name} style={{ maxWidth: '100%', borderRadius: '10px', height: '200px' }} />}
-        {type.startsWith('video/') && (
-          <video controls src={src} style={{ maxWidth: '100%', borderRadius: '10px', height: '200px' }}>
+    <MainCard sx={{ m: 1}} border={false} boxShadow>
+      <Box className="mediaFile" sx={{ textAlign: 'center' }}>
+        {type?.startsWith('image/') && <img className="mediaFile" src={src} alt={name} style={styleSheet} />}
+        {type?.startsWith('video/') && (
+          <video className="mediaFile" controls src={src} style={styleSheet}>
             <track kind="captions" src="" label="Captions" />
           </video>
         )}
       </Box>
-      <h3>{name}</h3>
-      {author && <p>By {author}</p>}
+      <Text variant='h1'>{name}</Text>
+      <Box sx={{mb:1}}>
+        {author && <Text variant='span'>By: <Text variant='span' size={13}>{author}</Text></Text>}
+      </Box>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <CustomButton label={'views'} onClick={() => handleViewClick()} />
-        <div>||</div>
+        <Text>||</Text>
         <CustomButton label={'delete'} onClick={() => dispatch(removeMediaFile({ mediaFileId: id }))} />
       </Box>
     </MainCard>

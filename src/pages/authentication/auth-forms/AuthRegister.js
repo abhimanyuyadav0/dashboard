@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-
-
 import {
   Box,
   Button,
@@ -18,21 +16,16 @@ import {
   Typography
 } from '@mui/material';
 
-// third party
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-
-
 import FirebaseSocial from './FirebaseSocial';
 import AnimateButton from 'components/@extended/AnimateButton';
 import { strengthColor, strengthIndicator } from 'utils/password-strength';
-
-
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-
-// ============================|| FIREBASE - REGISTER ||============================ //
+import { useNavigate } from 'react-router-dom';
 
 const AuthRegister = () => {
+  const navigate = useNavigate();
   const [level, setLevel] = useState();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
@@ -51,7 +44,9 @@ const AuthRegister = () => {
   useEffect(() => {
     changePassword('');
   }, []);
-
+  const handleViewClick = () => {
+    navigate(`/`);
+  };
   return (
     <>
       <Formik
@@ -156,7 +151,7 @@ const AuthRegister = () => {
                     error={Boolean(touched.email && errors.email)}
                     id="email-login"
                     type="email"
-                    value={values.email}
+                    value={values.email || 'abhimanyujune3@gmail.com'}
                     name="email"
                     onBlur={handleBlur}
                     onChange={handleChange}
@@ -178,7 +173,7 @@ const AuthRegister = () => {
                     error={Boolean(touched.password && errors.password)}
                     id="password-signup"
                     type={showPassword ? 'text' : 'password'}
-                    value={values.password}
+                    value={values.password || 1234}
                     name="password"
                     onBlur={handleBlur}
                     onChange={(e) => {
@@ -239,7 +234,7 @@ const AuthRegister = () => {
               )}
               <Grid item xs={12}>
                 <AnimateButton>
-                  <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
+                  <Button onClick={handleViewClick} disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
                     Create Account
                   </Button>
                 </AnimateButton>

@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "env": {
+    "browser": false,
+    "es2021": false
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", 
+      "pragma": "React",
+      "fragment": "Fragment", 
+      "version": "detect",
+      "flowVersion": "0.53" 
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "./"]
+      }
+    }
+  }
+}

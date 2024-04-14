@@ -20,8 +20,9 @@ const Palette = (mode) => {
     '#8c8c8c',
     '#595959',
     '#262626', //main text color
+    // '#28e98c',
     '#141414',
-    '#000000'
+    '#000000',
   ];
   const greyAscent = ['#fafafa', '#bfbfbf', '#434343', '#1f1f1f'];
   const greyConstant = ['#fafafb', '#e6ebf1'];

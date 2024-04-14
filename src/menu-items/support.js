@@ -20,10 +20,10 @@ const support = {
       id: 'documentation',
       title: 'Documentation',
       type: 'item',
-      url: 'https://codedthemes.gitbook.io/mantis/',
+      url: '#',
       icon: icons.QuestionOutlined,
       external: true,
-      target: true
+      target: false
     }
   ]
 };

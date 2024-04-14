@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-
-
 import {
   Button,
   Checkbox,
@@ -18,22 +16,16 @@ import {
   Typography
 } from '@mui/material';
 
-// third party
 import * as Yup from 'yup';
 import { Formik } from 'formik';
-
-
 import FirebaseSocial from './FirebaseSocial';
 import AnimateButton from 'components/@extended/AnimateButton';
-
-
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-
-// ============================|| FIREBASE - LOGIN ||============================ //
+import { useNavigate } from 'react-router-dom';
 
 const AuthLogin = () => {
+  const navigate = useNavigate();
   const [checked, setChecked] = React.useState(false);
-
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -43,11 +35,14 @@ const AuthLogin = () => {
     event.preventDefault();
   };
 
+  const handleViewClick = () => {
+    navigate(`/`);
+  };
   return (
     <>
       <Formik
         initialValues={{
-          email: 'info@codedthemes.com',
+          email: 'abhimanyujune3@gmail.com',
           password: '123456',
           submit: null
         }}
@@ -151,14 +146,14 @@ const AuthLogin = () => {
               )}
               <Grid item xs={12}>
                 <AnimateButton>
-                  <Button disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
+                  <Button onClick={handleViewClick} disableElevation disabled={isSubmitting} fullWidth size="large" type="submit" variant="contained" color="primary">
                     Login
                   </Button>
                 </AnimateButton>
               </Grid>
               <Grid item xs={12}>
                 <Divider>
-                  <Typography variant="caption"> Login with</Typography>
+                  <Typography variant="caption">Login with</Typography>
                 </Divider>
               </Grid>
               <Grid item xs={12}>

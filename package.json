@@ -1,6 +1,6 @@
 {
   "name": "dashboard",
-  "version": "1.2.0",
+  "version": "18.2.0",
   "private": true,
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
@@ -15,6 +15,8 @@
     "@testing-library/react": "^14.2.0",
     "@testing-library/user-event": "^14.5.2",
     "apexcharts": "^3.45.2",
+    "eslint": "^9.0.0",
+    "fast-average-color": "^9.4.0",
     "formik": "^2.4.5",
     "framer-motion": "^11.0.3",
     "fs": "^0.0.1-security",
@@ -28,6 +30,7 @@
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
+    "react-easy-crop": "^5.0.6",
     "react-element-to-jsx-string": "^15.0.0",
     "react-number-format": "^5.3.1",
     "react-perfect-scrollbar": "^1.5.8",
@@ -41,6 +44,7 @@
     "redux-persist": "^6.0.0",
     "simplebar": "^5.3.8",
     "simplebar-react": "^2.4.1",
+    "smartcrop": "^2.0.5",
     "typescript": "4.8.3",
     "uuid": "^9.0.1",
     "web-vitals": "^3.5.2",

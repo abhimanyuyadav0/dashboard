@@ -10,10 +10,17 @@ const mediaFilesSlice = createSlice({
   initialState,
   reducers: {
     addMediaFile(state, action) {
-      state.mediaFiles.push(action.payload.mediaFile);
+      state.mediaFiles.unshift(action.payload.mediaFile);
     },
     removeMediaFile(state, action) {
       state.mediaFiles = state.mediaFiles.filter(file => file.id !== action.payload.mediaFileId);
+    },
+    updateMediaFile(state, action) {
+      const { mediaFileId, newData } = action.payload;
+      const index = state.mediaFiles.findIndex(file => file.id === mediaFileId);
+      if (index !== -1) {
+        state.mediaFiles[index] = { ...state.mediaFiles[index], ...newData };
+      }
     },
     clearMediaFiles(state) {
       state.mediaFiles = [];
@@ -27,6 +34,6 @@ const mediaFilesSlice = createSlice({
   }
 });
 
-export const { addMediaFile, removeMediaFile, clearMediaFiles, openUploadModal, closeUploadModal } = mediaFilesSlice.actions;
+export const { addMediaFile, removeMediaFile, updateMediaFile, clearMediaFiles, openUploadModal, closeUploadModal } = mediaFilesSlice.actions;
 
 export default mediaFilesSlice.reducer;

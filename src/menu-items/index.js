@@ -4,7 +4,7 @@ import utilities from './utilities';
 import support from './support';
 
 const menuItems = {
-  items: [dashboard, pages]
+  items: [dashboard, pages, utilities, support]
 };
 
 export default menuItems;

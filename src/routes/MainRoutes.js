@@ -7,7 +7,6 @@ const Profile = Loadable(lazy(() => import('pages/profile')));
 const Templates = Loadable(lazy(() => import('pages/templates')));
 const PodcastAndShows = Loadable(lazy(() => import('pages/podcastAndShow')));
 const Media = Loadable(lazy(() => import('pages/media')));
-const Home = Loadable(lazy(() => import('pages/media')));
 const AllImages = Loadable(lazy(() => import('pages/media/images')));
 const AllVideos = Loadable(lazy(() => import('pages/media/videos')));
 const VideoRecorder = Loadable(lazy(() => import('pages/media/recordVideo')));
@@ -24,20 +23,16 @@ const MainRoutes = {
   children: [
     {
       path: '/',
-      element: <Home />
+      element: <DashboardDefault />
     },
     {
-      path: 'home',
-      element: <Home />
+      path: 'color',
+      element: <Color />
     },
-    // {
-    //   path: 'color',
-    //   element: <Color />
-    // },
-    // {
-    //   path: 'dashboard',
-    //   element: <DashboardDefault />
-    // },
+    {
+      path: 'dashboard',
+      element: <DashboardDefault />
+    },
     {
       path: 'media',
       element: <Media />

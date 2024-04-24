@@ -1,4 +1,4 @@
-import { DashboardOutlined,CodeSandboxOutlined ,WifiOutlined , UserOutlined, HomeOutlined, VideoCameraOutlined, FileImageOutlined, } from '@ant-design/icons';
+import { DashboardOutlined, CodeSandboxOutlined, WifiOutlined, UserOutlined, HomeOutlined, VideoCameraOutlined, FileImageOutlined, } from '@ant-design/icons';
 const icons = {
   DashboardOutlined,
   UserOutlined,
@@ -15,35 +15,35 @@ const dashboard = {
   type: 'group',
   children: [
     {
-      id: 'home',
-      title: 'Home',
+      id: 'dashboard',
+      title: 'Dashboard',
       type: 'item',
-      url: '/home',
-      icon: icons.HomeOutlined,
+      url: '/dashboard',
+      icon: icons.DashboardOutlined,
       breadcrumbs: false
     },
-    // {
-    //   id: 'dashboard',
-    //   title: 'Dashboard',
-    //   type: 'item',
-    //   url: '/dashboard',
-    //   icon: icons.DashboardOutlined,
-    //   breadcrumbs: false
-    // },
-    // {
-    //   id: 'profile',
-    //   title: 'Profile',
-    //   type: 'item',
-    //   url: '/profile',
-    //   icon: icons.UserOutlined,
-    //   breadcrumbs: false
-    // },
+    {
+      id: 'profile',
+      title: 'Profile',
+      type: 'item',
+      url: '/profile',
+      icon: icons.UserOutlined,
+      breadcrumbs: false
+    },
     {
       id: 'templates',
       title: 'Templates',
       type: 'item',
       url: '/templates',
       icon: icons.CodeSandboxOutlined,
+      breadcrumbs: false
+    },
+    {
+      id: 'media',
+      title: 'Media',
+      type: 'item',
+      url: '/media',
+      icon: icons.HomeOutlined,
       breadcrumbs: false
     },
     {
@@ -55,6 +55,14 @@ const dashboard = {
       breadcrumbs: true
     },
     {
+      id: 'allimages',
+      title: 'All Images',
+      type: 'item',
+      url: 'media/images',
+      icon: icons.FileImageOutlined,
+      breadcrumbs: false
+    },
+    {
       id: 'podcastandshow',
       title: 'Podcasts & Shows',
       type: 'item',
@@ -62,14 +70,6 @@ const dashboard = {
       icon: icons.WifiOutlined,
       breadcrumbs: false
     },
-    {
-      id: 'allimages',
-      title: 'All Images',
-      type: 'item',
-      url: 'media/images',
-      icon: icons.FileImageOutlined,
-      breadcrumbs: false
-    }
   ]
 };
 

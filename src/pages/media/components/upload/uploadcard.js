@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { addMediaFile, closeUploadModal } from 'store/reducers/mediaFiles';
 
-const UploadCard = ({ accept }) => {
+const UploadCard = ({ actionFor, accept }) => {
   const [files, setFiles] = useState([]);
   const dispatch = useDispatch();
   const handleFileUpload = (event) => {
@@ -31,7 +31,11 @@ const UploadCard = ({ accept }) => {
       console.log('No media files uploaded. Canceling publish.');
       return;
     }
-    dispatch(addMediaFile({ mediaFile: files[0] }));
+    if (actionFor == 'profile') {
+
+    } else {
+      dispatch(addMediaFile({ mediaFile: files[0] }));
+    }
     dispatch(closeUploadModal());
     setFiles([]);
   };

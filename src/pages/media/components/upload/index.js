@@ -15,7 +15,7 @@ const UploadMediaModal = ({ accept }) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <UploadCard accept={accept} />
+      <UploadCard actionFor='profile' accept={accept} />
     </Modal>
   );
 };

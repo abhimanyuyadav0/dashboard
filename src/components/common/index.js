@@ -1,3 +1,4 @@
 import CommingSoon from './commingSoon'
 import CustomButton from './customButton'
-export { CommingSoon, CustomButton }
+import CustomLoader from './customLoader'
+export { CommingSoon, CustomButton,CustomLoader }

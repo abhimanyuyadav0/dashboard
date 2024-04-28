@@ -1,0 +1,167 @@
+
+:root {
+  --hue: 223;
+  --bg: hsl(var(--hue),90%,10%);
+  --fg: hsl(var(--hue),90%,90%);
+  --primary: hsl(var(--hue),90%,50%);
+  --trans-dur: 0.3s;
+  --trans-timing: cubic-bezier(0.65,0,0.35,1);
+  font-size: calc(14px + (30 - 14) * (100vw - 280px) / (3840 - 280));
+}
+
+.loaderWrapper {
+  background-color: #ffffffd8;
+  color: var(--fg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999; 
+}
+
+.l {
+  --dur: 2s;
+  --dur-frac: calc(var(--dur) * 0.7);
+  --start-delay-a: calc(var(--dur) * 0.125);
+  --mid-delay-a: calc(var(--dur) * 0.825);
+  --end-delay-a: calc(var(--dur) * 1.825);
+  --start-delay-b: calc(var(--dur) * 0.25);
+  --mid-delay-b: calc(var(--dur) * 0.95);
+  --end-delay-b: calc(var(--dur) * 1.95);
+  --end-delay-c: calc(var(--dur) * 1.7);
+  animation: fade-slide-in 0.5s var(--trans-timing);
+  display: block;
+  margin: auto;
+  width: 12em;
+  height: auto;
+}
+.l__a, .l__b, .l__c, .l__rotate {
+  transform-origin: 64px 64px;
+}
+.l--running .l__a {
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: ring-a-start var(--dur-frac) var(--start-delay-a) linear infinite, ring-a var(--dur) var(--mid-delay-a) linear infinite, ring-a-end var(--dur-frac) var(--end-delay-a) linear;
+}
+.l--running .l__b {
+  animation: ring-b-start var(--dur-frac) var(--start-delay-b) linear infinite, ring-b var(--dur) var(--mid-delay-b) linear infinite, ring-b-end var(--dur-frac) var(--end-delay-b) linear;
+}
+.l--running .l__c {
+  animation: ring-c-start var(--dur-frac) linear, ring-c var(--dur) var(--dur-frac) linear infinite, ring-c-end var(--dur-frac) var(--end-delay-c) linear ;
+}
+.l--running .l__rotate {
+  animation: ring-rotate var(--dur) linear infinite;
+}
+
+/* Animations */
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(33%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes ring-a {
+  from, to {
+    stroke-dashoffset: -329.875;
+    transform: rotate(0);
+  }
+  50% {
+    stroke-dashoffset: -94.25;
+    transform: rotate(135deg);
+  }
+}
+@keyframes ring-a-start {
+  from {
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+  to {
+    stroke-dashoffset: -329.875;
+    transform: rotate(-360deg);
+  }
+}
+@keyframes ring-a-end {
+  from {
+    stroke-dashoffset: -329.875;
+    transform: rotate(0);
+  }
+  to {
+    stroke-dashoffset: 0;
+    transform: rotate(360deg);
+  }
+}
+@keyframes ring-b {
+  from, to {
+    stroke-dashoffset: -296.8875;
+    transform: rotate(0);
+  }
+  50% {
+    stroke-dashoffset: -84.825;
+    transform: rotate(135deg);
+  }
+}
+@keyframes ring-b-start {
+  from {
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+  to {
+    stroke-dashoffset: -296.8875;
+    transform: rotate(-360deg);
+  }
+}
+@keyframes ring-b-end {
+  from {
+    stroke-dashoffset: -296.8875;
+    transform: rotate(0);
+  }
+  to {
+    stroke-dashoffset: 0;
+    transform: rotate(360deg);
+  }
+}
+@keyframes ring-c {
+  from, to {
+    stroke-dashoffset: -263.9;
+    transform: rotate(0);
+  }
+  50% {
+    stroke-dashoffset: -75.4;
+    transform: rotate(135deg);
+  }
+}
+@keyframes ring-c-start {
+  from {
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+  to {
+    stroke-dashoffset: -263.9;
+    transform: rotate(-360deg);
+  }
+}
+@keyframes ring-c-end {
+  from {
+    stroke-dashoffset: -263.9;
+    transform: rotate(0);
+  }
+  to {
+    stroke-dashoffset: 0;
+    transform: rotate(360deg);
+  }
+}
+@keyframes ring-rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-720deg);
+  }
+}

@@ -1,5 +1,5 @@
 import { DashboardOutlined, CodeSandboxOutlined, WifiOutlined, UserOutlined, HomeOutlined, VideoCameraOutlined, FileImageOutlined, } from '@ant-design/icons';
-
+import PeopleIcon from '@mui/icons-material/People';
 const management = {
   id: 'group-management',
   title: 'Management',
@@ -10,8 +10,8 @@ const management = {
       title: 'Users',
       type: 'item',
       url: '/users',
-      icon: DashboardOutlined,
-      breadcrumbs: false
+      icon: PeopleIcon,
+      breadcrumbs: true
     },
   ]
 };

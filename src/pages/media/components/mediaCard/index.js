@@ -12,7 +12,7 @@ const MediaCard = ({ id, name, src, author, type }) => {
   const navigate = useNavigate();
   const handleViewClick = () => {
     let mediaType = type?.startsWith('image/') ? 'images' : 'videos';
-    navigate(`media/${mediaType}/view/${id}`);
+    navigate(`/media/${mediaType}/view/${id}`);
   };
   const styleSheet = {
     maxWidth: '100%',
